@@ -5,7 +5,7 @@ const nextConfig = {
       unoptimized: true,
     },
     basePath: '/nextjswhe',
-    images: { unoptimized: false } ,
+    images: { unoptimized: true } ,
     assetPrefix: '/nextjswhe/',
     trailingSlash: true,
     webpack: (config) => {
