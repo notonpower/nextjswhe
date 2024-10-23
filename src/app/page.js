@@ -47,7 +47,7 @@ export default function Home() {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <Image
-            src="/textlogo_white.webp"
+            src="/nextjswhe/textlogo_white.webp"
             alt="WHEREWEAR"
             width={500}
             height={200}
