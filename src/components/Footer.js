@@ -1,4 +1,7 @@
 // src/components/Footer.js
+import Link from 'next/link';
+import Image from 'next/image';
+
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-12 mt-auto">
