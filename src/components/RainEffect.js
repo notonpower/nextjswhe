@@ -24,7 +24,7 @@ export default function RainEffect() {
     }
 
     function animate() {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
       // Add new raindrops
@@ -60,10 +60,10 @@ export default function RainEffect() {
   }, []);
   
   return (
-    <canvas
-      id="rainCanvas"
-      className="fixed top-0 left-0 w-full h-full pointer-events-none"
-      style={{ opacity: 0.7 }}
-    />
+<canvas
+  id="rainCanvas"
+  className="fixed top-0 left-0 w-full h-full pointer-events-none"
+  style={{ opacity: 0.4 }}  // 0.7から0.4に変更
+/>
   );
 }
