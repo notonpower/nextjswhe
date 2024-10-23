@@ -40,7 +40,7 @@ export default function Home() {
 
   return (
     
-<main className="min-h-screen relative pt-16">  {/* ここで背景色を設定 */}
+<main className="min-h-screen relative pt-16 bg-gray-900 dark:bg-gray-900">
 <RainEffect />
   <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] text-center">
     <div className={`transition-all duration-1000 transform ${
