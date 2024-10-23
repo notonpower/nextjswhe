@@ -1,13 +1,9 @@
-// next.config.mjs
 const nextConfig = {
   output: 'export',
   images: {
     unoptimized: true,
-  },
-  // ドメインがwherewear.jpの場合、basePath不要
-  // basePath: '/nextjswhe', // ← これを削除
-  // assetPrefix: '/nextjswhe/', // ← これも削除
-  trailingSlash: true,
+    deviceSizes: [320, 420, 768, 1024, 1200], // レスポンシブ画像サイズを設定
+  }
 }
 
 export default nextConfig;

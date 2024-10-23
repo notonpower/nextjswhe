@@ -40,22 +40,25 @@ export default function Home() {
 
   return (
     
-     <main className="min-h-screen relative pt-16">
-      <RainEffect />
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] text-center">
-        <div className={`transition-all duration-1000 transform ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-          <Image
-            src="/textlogo_white.webp"
-            alt="WHEREWEAR"
-            width={500}
-            height={200}
-            className="mx-auto mb-8"
-          />
-        </div>
-        <ScrollDownArrow />
+<main className="min-h-screen relative pt-16 bg-gray-900"> {/* 背景色を明示的に設定 */}
+  <RainEffect />
+  <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] text-center">
+    <div className={`transition-all duration-1000 transform ${
+      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+    }`}>
+      <div className="relative"> {/* 画像のコンテナを追加 */}
+        <Image
+          src="/textlogo_white.webp"
+          alt="WHEREWEAR"
+          width={500}
+          height={200}
+          className="mx-auto mb-8 max-w-[80vw] md:max-w-full" // モバイル用のサイズ制限を追加
+          priority // 優先的に読み込む
+        />
       </div>
+    </div>
+    <ScrollDownArrow />
+  </div>
 
       <UpcomingMatch />
       <MatchResults /> 

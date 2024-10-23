@@ -7,11 +7,21 @@ export default function RainEffect() {
     const canvas = document.getElementById('rainCanvas');
     const ctx = canvas.getContext('2d');
     
-    let raindrops = [];
-    
     function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      // モバイルでのピクセル比を考慮
+      const dpr = window.devicePixelRatio || 1;
+      const displayWidth = window.innerWidth;
+      const displayHeight = window.innerHeight;
+      
+      canvas.width = displayWidth * dpr;
+      canvas.height = displayHeight * dpr;
+      
+      // CSSサイズを設定
+      canvas.style.width = `${displayWidth}px`;
+      canvas.style.height = `${displayHeight}px`;
+      
+      // コンテキストのスケールを調整
+      ctx.scale(dpr, dpr);
     }
     
     function createRaindrop() {
