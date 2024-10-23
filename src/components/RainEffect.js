@@ -1,27 +1,17 @@
 // src/components/RainEffect.js
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function RainEffect() {
+  const raindropRef = useRef([]);
+
   useEffect(() => {
     const canvas = document.getElementById('rainCanvas');
     const ctx = canvas.getContext('2d');
     
     function resize() {
-      // モバイルでのピクセル比を考慮
-      const dpr = window.devicePixelRatio || 1;
-      const displayWidth = window.innerWidth;
-      const displayHeight = window.innerHeight;
-      
-      canvas.width = displayWidth * dpr;
-      canvas.height = displayHeight * dpr;
-      
-      // CSSサイズを設定
-      canvas.style.width = `${displayWidth}px`;
-      canvas.style.height = `${displayHeight}px`;
-      
-      // コンテキストのスケールを調整
-      ctx.scale(dpr, dpr);
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     }
     
     function createRaindrop() {
@@ -32,19 +22,20 @@ export default function RainEffect() {
         length: 10 + Math.random() * 20
       };
     }
-    
+
     function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
       
       // Add new raindrops
-      if (raindrops.length < 100) {
-        raindrops.push(createRaindrop());
+      if (raindropRef.current.length < 100) {
+        raindropRef.current.push(createRaindrop());
       }
       
       ctx.strokeStyle = 'rgba(174, 194, 224, 0.5)';
       ctx.lineWidth = 1;
       
-      raindrops.forEach((drop, index) => {
+      raindropRef.current = raindropRef.current.filter((drop, index) => {
         ctx.beginPath();
         ctx.moveTo(drop.x, drop.y);
         ctx.lineTo(drop.x + 0.5, drop.y + drop.length);
@@ -52,9 +43,7 @@ export default function RainEffect() {
         
         drop.y += drop.speed;
         
-        if (drop.y > canvas.height) {
-          raindrops.splice(index, 1);
-        }
+        return drop.y <= canvas.height;
       });
       
       requestAnimationFrame(animate);
@@ -66,6 +55,7 @@ export default function RainEffect() {
     
     return () => {
       window.removeEventListener('resize', resize);
+      raindropRef.current = [];
     };
   }, []);
   
@@ -73,6 +63,7 @@ export default function RainEffect() {
     <canvas
       id="rainCanvas"
       className="fixed top-0 left-0 w-full h-full pointer-events-none"
+      style={{ opacity: 0.7 }}
     />
   );
 }
