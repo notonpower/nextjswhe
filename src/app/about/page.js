@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function About() {
   return (
-    <main className="min-h-screen bg-gray-900 text-white pt-24 pb-16">
+    <main className="min-h-screen text-white pt-24 pb-16">
       <div className="max-w-4xl mx-auto px-4">
         <div className="mb-20">
           <Image
