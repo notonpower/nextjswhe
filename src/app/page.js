@@ -40,8 +40,8 @@ export default function Home() {
 
   return (
     
-<main className="min-h-screen relative pt-16 bg-gray-900"> {/* 背景色を明示的に設定 */}
-  <RainEffect />
+<main className="min-h-screen relative pt-16 bg-gray-900">  {/* ここで背景色を設定 */}
+<RainEffect />
   <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] text-center">
     <div className={`transition-all duration-1000 transform ${
       isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
