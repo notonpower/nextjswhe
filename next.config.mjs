@@ -1,3 +1,4 @@
+// next.config.mjs
 const nextConfig = {
     output: 'export',
     images: {
@@ -5,6 +6,7 @@ const nextConfig = {
     },
     basePath: '/nextjswhe',
     assetPrefix: '/nextjswhe/',
+    trailingSlash: true,
   }
   
   export default nextConfig;
