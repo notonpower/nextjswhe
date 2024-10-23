@@ -1,21 +1,18 @@
 // src/components/ScrollDownArrow.js
 'use client';
-import { motion } from 'framer-motion';
 
 export default function ScrollDownArrow() {
+  const handleClick = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+  };
+
   return (
-    <motion.div 
-      className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white cursor-pointer"
-      animate={{ y: [0, 10, 0] }}
-      transition={{ 
-        duration: 2,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }}
-      onClick={() => window.scrollTo({
-        top: window.innerHeight,
-        behavior: 'smooth'
-      })}
+    <div 
+      className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white cursor-pointer animate-bounce"
+      onClick={handleClick}
     >
       <svg 
         width="40" 
@@ -27,6 +24,6 @@ export default function ScrollDownArrow() {
       >
         <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
       </svg>
-    </motion.div>
+    </div>
   );
 }
