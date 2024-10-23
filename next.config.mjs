@@ -1,10 +1,10 @@
-// next.config.mjs
 const nextConfig = {
     output: 'export',
     images: {
       unoptimized: true,
     },
-    basePath: '/nextjswhe'
+    basePath: '/nextjswhe',
+    assetPrefix: '/nextjswhe/',
   }
   
   export default nextConfig;
