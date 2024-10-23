@@ -7,6 +7,10 @@ const nextConfig = {
     basePath: '/nextjswhe',
     assetPrefix: '/nextjswhe/',
     trailingSlash: true,
+    webpack: (config) => {
+      config.resolve.fallback = { fs: false, path: false };
+      return config;
+    }
   }
   
   export default nextConfig;
