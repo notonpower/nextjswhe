@@ -4,9 +4,9 @@ const nextConfig = {
     images: {
       unoptimized: true,
     },
-    basePath: '/nextjswhe',
+    basePath: '', // リポジトリ名を削除
+  assetPrefix: '', // リポジトリ名を削除
     images: { unoptimized: true } ,
-    assetPrefix: '/nextjswhe/',
     trailingSlash: true,
     webpack: (config) => {
       config.resolve.fallback = { fs: false, path: false };
